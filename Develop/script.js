@@ -1,22 +1,24 @@
 // Assignment code here
-function genRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() *26) + 97);
-}
-function genRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() *26) + 65);
-}
-function genRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() *10) + 48);
-}
-function genRandomSymbol() {
-  const symbols = '!@#$%^&*(){}[]=<>/,.';
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
-console.log(genRandomLower());
-console.log(genRandomUpper());
-console.log(genRandomNumber());
-console.log(genRandomSymbol());
 
+function generatePassword() {
+  // Asks for user input
+  enter = parseInt(prompt("How many characters would you like your password? Choose between 8 and 128"));
+  // First if statement for user validation 
+  if (!enter) {
+      alert("This needs a value");
+  } else if (enter < 8 || enter > 128) {
+      // Validates user input
+      // Start user input prompts
+      enter = parseInt(prompt("You must choose between 8 and 128"));
+
+  } else {
+      // Continues once user input is validated
+      confirmNumber = confirm("Will this contain numbers?");
+      confirmCharacter = confirm("Will this contain special characters?");
+      confirmUppercase = confirm("Will this contain Uppercase letters?");
+      confirmLowercase = confirm("Will this contain Lowercase letters?");
+  };
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -32,4 +34,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
